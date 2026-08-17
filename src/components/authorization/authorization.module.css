@@ -1,0 +1,288 @@
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #090a0e;
+  padding: 40px 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 90%;
+  max-width: 1400px;
+  min-height: 700px;
+  margin: 0 auto;
+  background-color: #0f1219;
+  border: 2px solid #1e1f24;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+.content_headar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.content_logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.div_now_acc_reg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text_div {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  margin: 0;
+}
+
+.a_regestration_div {
+  display: flex;
+  align-items: center;
+}
+
+.a_regestration {
+  color: #2E5D49;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.a_regestration:hover {
+  border-bottom-color: #2E5D49;
+}
+
+
+@media (max-width: 900px) {
+  .content_headar {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .div_now_acc_reg {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  .content_headar {
+    padding: 16px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .a_regestration {
+    font-size: 14px;
+  }
+
+  .logo {
+    max-width: 100px;
+  }
+}
+
+
+.content_body {
+  display: flex;
+  flex: 1;
+  min-height: 500px;
+}
+
+.left {
+  flex: 1;
+  padding: 0 20px; 
+  color: #ffffff;
+  display: flex;
+  flex-direction: column; 
+}
+
+.left_text {
+  margin-top: 50px;
+  width: 100%;
+  height: fit-content;
+  margin-left: 20px;
+}
+
+.div_img_left {
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.img_left {
+  width: 95%;
+}
+
+.text1 {
+  font-size: 35px;
+}
+
+.text2 {
+  margin-top: 15px;
+}
+
+
+.right {
+  flex: 1;
+
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+} 
+
+.right_contant {
+  width: 100%;
+  max-width: 600px;        
+  background-color: #161920;
+  border-radius: 20px;
+  border: 2px solid #1e1f24;
+  padding: 20px 30px 40px 30px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.right_div_text {
+  color: #ffffff;
+}
+
+.right_text {
+  font-size: 35px;
+}
+
+.right_text_p {
+  padding-top: 5px;
+}
+
+
+.right_div_inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.right_div_inputs1 {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+}
+
+.right_inputs1_text_email {
+  color: #B1B2B7;
+  padding-bottom: 13px;
+  width: 80%; 
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.right_inputs1_input {
+  width: 80%; 
+  background-color: #15171E;
+  border-radius: 8px;
+  border: 2px solid #B1B2B7;
+  color: #ffffff;
+  font-size: 24px; 
+  padding: 10px 15px;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.3s;
+}
+
+.right_inputs1_input:focus {
+  border-color: #2E5D49;
+}
+
+
+.button_div {
+  margin-top: 40px;
+  width: 100%;           
+  display: flex;
+  justify-content: center; 
+}
+
+.button_div button { 
+  width: 80%;             
+  padding: 16px 0;
+  background-color: #2E5D49;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button_div button:hover {
+  background-color: #214434;
+}
+
+
+@media (max-width: 900px) {
+  .content_body {
+    flex-direction: column;
+  }
+
+  .left {
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .left_text {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .div_img_left {
+    margin-left: 0;
+  }
+
+  .right {
+    padding: 20px;
+  }
+
+  .right_contant {
+    padding: 20px;
+  }
+}
