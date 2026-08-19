@@ -14,12 +14,14 @@ function Home() {
                         <img src={LogoNavigation} alt="" className={stylesHome.navigation_logo} />
                         <span className={stylesHome.navigation_text}>Абхазия</span>
                     </div>
-                    <div className={stylesHome.header_right}>
-                        <button className={stylesHome.button_create_product}> 
-                            <span className={stylesHome.button_plus}>+</span> 
-                            Разместить объявление
-                        </button>
-                    </div>
+                  <div className={stylesHome.header_right}>
+                   <Link to="/create-product" className={stylesHome.sidebar_link}>
+                 <button className={stylesHome.button_create_product}> 
+              <span className={stylesHome.button_plus}>+</span> 
+            Разместить объявление
+        </button>
+    </Link>
+</div>
                 </div>
 
                
