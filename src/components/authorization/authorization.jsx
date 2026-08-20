@@ -1,9 +1,45 @@
 import styles from './authorization.module.css';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
+import { useState } from 'react';
+import { useAuth } from "../../context/AuthProvider";
 import logo from '../../assets/logo1.png';
 import logo1 from '../../assets/img1.png';
 
-function Register() {
+function Login() {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+    try {
+      await login(formData.email, formData.password);
+      alert('Вход выполнен успешно!');
+      navigate('/home'); 
+    } catch (err) {
+      const errorMessage = err.response?.data?.detail || 'Ошибка входа. Проверьте почту и пароль.';
+      setError(errorMessage);
+      alert( errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -18,7 +54,7 @@ function Register() {
               <p className={styles.text}>Нет аккаунта</p>
             </div>
             <div className={styles.a_regestration_div}>
-               <Link to="/" className={styles.a_regestration}>Зарегистрироваться</Link>
+               <Link to="/register" className={styles.a_regestration}>Зарегистрироваться</Link>
             </div>
           </div>
         </div>
@@ -46,23 +82,39 @@ function Register() {
                 <p className={styles.right_text_p}>Добро пожаловать! Пожалуйста, войдите в свой аккаунт</p>
               </div>
 
-              <div className={styles.right_div_inputs}>
+              <form className={styles.right_div_inputs} onSubmit={handleSubmit}>
                 
                 <div className={styles.right_div_inputs1}>
-                  <p className={styles.right_inputs1_text_email}>Email</p>
-                  <input className={styles.right_inputs1_input} type="text" />
+                  <label className={styles.right_inputs1_text_email}>Email</label>
+                  <input 
+                    className={styles.right_inputs1_input} 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required 
+                  />
                 </div>
 
                 <div className={styles.right_div_inputs1}>
-                  <p className={styles.right_inputs1_text_email}>Password</p>
-                  <input className={styles.right_inputs1_input} type="text" />
+                  <label className={styles.right_inputs1_text_email}>Пароль</label>
+                  <input 
+                    className={styles.right_inputs1_input} 
+                    type="password" 
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required 
+                  />
                 </div>
 
-              </div>
+                <div className={styles.button_div}>
+                  <button className={styles.button} type="submit" disabled={isLoading}>
+                    {isLoading ? 'Вход...' : 'Войти'}
+                  </button>
+                </div>
 
-              <div className={styles.button_div}>
-                <button className={styles.button}>Войти</button>
-              </div>
+              </form>
 
             </div>
           </div>
@@ -74,4 +126,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
